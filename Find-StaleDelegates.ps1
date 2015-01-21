@@ -3,10 +3,10 @@
 Find-StaleDelegates.ps1
 
 .DESCRIPTION 
-Sample script for locating stale delegate entries on Exchange Server 2007 mailboxes.
+Sample script for locating stale delegate entries on Exchange Server mailboxes.
 
 .EXAMPLE
-.\ScriptTemplate.ps1
+.\Find-StaleDelegates.ps1.ps1
 
 .LINK
 https://exchangeserverpro.com
@@ -54,7 +54,7 @@ foreach ($mailbox in $mailboxes)
     {
         try
         {
-            $getdelegate = Get-Mailbox $delegate -ErrorAction STOP
+            $getdelegate = Get-Recipient $delegate -ErrorAction STOP
             Write-Host -ForegroundColor Green "$($delegate.Name) is okay"
         }
         catch
